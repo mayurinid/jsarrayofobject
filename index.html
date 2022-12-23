@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <Pre>Q 1.We are interested in retrieving only the students' names; all the names should be in caps.
+        ['JOHN', 'BABA', 'YAGA', 'WICK']
+        Answer 1.
+        let studentRecords = [
+            { name: 'John', id: 123, marks: 98 },
+            { name: 'Baba', id: 101, marks: 23 },
+            { name: 'yaga', id: 200, marks: 45 },
+            { name: 'Wick', id: 115, marks: 75 }]
+        const stuMapRes=studentRecords.map((x)=>console.log(x.name.toUpperCase()))
+        Output:
+         JOHN
+         BABA
+         YAGA
+         WICK
+        
+        Q 2.Suppose we have the same dataset as above but this time we want to get the details of students who scored more than 50 marks.
+        [{name: 'John', id: 123, marks: 98 },{name: 'Wick', id: 115, marks: 75 }]
+        Answer 2.
+        let studentRecords = [
+            { name: 'John', id: 123, marks: 98 },
+            { name: 'Baba', id: 101, marks: 23 },
+            { name: 'yaga', id: 200, marks: 45 },
+            { name: 'Wick', id: 115, marks: 75 }]
+        const stuMapRes1=studentRecords.filter((x) => x.marks > 50)
+        console.log(stuMapRes1);
+        Output:
+        [{name: 'John', id: 123, marks: 98},
+        {name: 'Wick', id: 115, marks: 75}]
+        
+        Q 3.Retrieve the details of students who scored more than 50 marks and have IDs greater than 120.
+        Answer 3.
+        let studentRecords = [
+            { name: 'John', id: 123, marks: 98 },
+            { name: 'Baba', id: 101, marks: 23 },
+            { name: 'yaga', id: 200, marks: 45 },
+            { name: 'Wick', id: 115, marks: 75 }]
+        const stuMapRes2=studentRecords.filter((x) => x.marks > 50 && x.id>120)
+        console.log(stuMapRes2);
+        Output:
+        [{name: 'John', id: 123, marks: 98}]
+        
+        Q 4.Consider the same scenario we have discussed above, but this time we would like to know the sum total of the marks of the students.
+        Answer 4.
+        let studentRecords = [
+            { name: 'John', id: 123, marks: 98 },
+            { name: 'Baba', id: 101, marks: 23 },
+            { name: 'yaga', id: 200, marks: 45 },
+            { name: 'Wick', id: 115, marks: 75 }]
+        const stuMapRes3=studentRecords.reduce(((sum,acc) => sum+acc.marks),0)
+        console.log(stuMapRes3);
+        Output:
+        241
+        
+        Q 5.This time we want to get only the names of the students who scored more than 50 marks from the same dataset used above.
+        Answer 5.
+        let studentRecords = [
+            { name: 'John', id: 123, marks: 98 },
+            { name: 'Baba', id: 101, marks: 23 },
+            { name: 'yaga', id: 200, marks: 45 },
+            { name: 'Wick', id: 115, marks: 75 }]
+            
+            for (let index = 0; index < studentRecords.length; index++){
+                if(studentRecords[index].marks>50)
+                console.log(studentRecords[index].name);
+            }
+          Output:
+          John
+          Wick
+        
+        Q 6.This time we are required to print the sum of marks of the students with id > 120.
+        Answer 6.
+        let studentRecords = [
+            { name: 'John', id: 123, marks: 98 },
+            { name: 'Baba', id: 101, marks: 23 },
+            { name: 'yaga', id: 200, marks: 45 },
+            { name: 'Wick', id: 115, marks: 75 }]
+        const stuMapRes4=studentRecords.filter((x) => x.id>120).reduce(((sum,acc) => sum+acc.marks),0)
+        console.log(stuMapRes4);
+        Output:
+        143
+        
+        
+        Q 7.This time we are required to print the total marks of the students with marks greater than 50 after a grace of 15 marks has been added to those students who scored less than 50.
+        Answer 7.
+        let studentRecords = [
+            { name: 'John', id: 123, marks: 98 },
+            { name: 'Baba', id: 101, marks: 23 },
+            { name: 'yaga', id: 200, marks: 45 },
+            { name: 'Wick', id: 115, marks: 75 }]
+        let totalMarks = studentRecords.map(function(x){ 
+            if(x.marks < 50){
+                x.marks += 15;}
+            return x;
+        }).filter(x => x.marks > 50).reduce((acc,curr) => acc+curr.marks, 0);
+        console.log(totalMarks); 
+        Output:
+        233
+        
+        Q 8.Create 6 objects , each object will have name, class, roll no as properties. Store these objects in an array of objects.
+        Answer 8.
+        let tasklist=[];
+        function Person(name, class1, roll) {
+            this.name = name;
+            this.class1= class1;
+            this.roll = roll;
+          }
+          const ken = new Person("Ken Jones", 3, 123);
+          const ken1 = new Person("Ken Jones1", 4, 124);
+          const ken2= new Person("Ken Jones2", 5, 125);
+          const ken3 = new Person("Ken Jones3", 6, 126);
+          const ken4 = new Person("Ken Jones4", 7, 127);
+          const ken5 = new Person("Ken Jones5", 8, 128);
+          tasklist.push(ken,ken1,ken2,ken3,ken4,ken5);
+          console.log(tasklist)
+        Output: 
+         [{name: 'Ken Jones', class1: 3, roll: 123},
+         {name: 'Ken Jones1', class1: 4, roll: 124},
+         {name: 'Ken Jones2', class1: 5, roll: 125},
+         {name: 'Ken Jones3', class1: 6, roll: 126},
+         {name: 'Ken Jones4', class1: 7, roll: 127},
+         {name: 'Ken Jones5', class1: 8, roll: 128}]
+        </Pre>
+    <script src="./index.js"></script>
+</body>
+</html>
